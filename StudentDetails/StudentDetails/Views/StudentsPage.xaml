@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentDetails.Views.StudentsPage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="DodgerBlue">
+                    <Label HorizontalOptions="EndAndExpand"></Label>
+                    <Label Text="Our Students" HorizontalOptions="EndAndExpand" Padding="15" HorizontalTextAlignment="End" TextColor="White" FontSize="20"></Label>
+                    <Button Text="Add" x:Name="btnAdd" Clicked="btnAdd_Clicked" HorizontalOptions="EndAndExpand" BackgroundColor="DodgerBlue" TextColor="White"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry  x:Name="txtSearch" Placeholder="Search..." WidthRequest="200" TextChanged="txtSearch_TextChanged" HorizontalOptions="EndAndExpand"></Entry>
+                </StackLayout>
+                <StackLayout Padding="10">
+                    <ListView x:Name="studentListView" ItemsSource="{Binding .}" ItemTapped="studentListView_ItemTapped" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="AliceBlue">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="{Binding StudentID}" IsVisible="false" ></Label>
+                                            <Label Text="{Binding FirstName}" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding LastName}" FontAttributes="Bold"></Label>
+                                            <Label Text="{Binding Age}" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" FontAttributes="Bold"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Gender}"></Label>
+                                            <Label Text="{Binding Class}" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

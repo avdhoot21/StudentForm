@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentDetails.Views.StudentPage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout BackgroundColor="DodgerBlue" Orientation="Horizontal">
+                    <Button HorizontalOptions="StartAndExpand" x:Name="Back" Text="Back" BackgroundColor="DodgerBlue" Clicked="Back_Clicked" TextColor="White"></Button>
+                    <Label Text="Add Students" x:Name="lblHeader" HorizontalOptions="CenterAndExpand" Padding="15" FontSize="20"  TextColor="White"></Label>
+                    <Button Text="Save" x:Name="btnSave" HorizontalOptions="EndAndExpand" Clicked="btnSave_Clicked" BackgroundColor="DodgerBlue" TextColor="White"></Button>
+                </StackLayout>
+                <ScrollView>
+                    <StackLayout Padding="10">
+                        <Label x:Name="lblFirstName" Text="FirstName" FontSize="18"></Label>
+                        <Entry x:Name="txtFirstName" TextChanged="txtFirstName_TextChanged"  Placeholder="Please enter first name" PlaceholderColor="Gray" FontSize="16" ></Entry>
+                        <Label x:Name="lblFirstNameWarn"  IsVisible="false" TextColor="Red"></Label>
+                        <Label x:Name="lblLastName" Text="LastName" FontSize="18"></Label>
+                        <Entry x:Name="txtLastName" TextChanged="txtLastName_TextChanged" Keyboard="Plain" Placeholder="Please enter last name" PlaceholderColor="Gray" FontSize="16"></Entry>
+                        <Label x:Name="lblLastNameWarn" IsVisible="false" TextColor="Red"></Label>
+                        <Label x:Name="lblGender" Text="Gender" FontSize="18"/>
+                        <Picker Title="Select Gender" TextColor="Black" SelectedIndexChanged="cmbGender_SelectedIndexChanged"  x:Name="cmbGender" ItemDisplayBinding="{Binding Key}" HorizontalOptions="Start" WidthRequest="154" SelectedIndex="{Binding Value}">
+
+                        </Picker>
+                        <Label x:Name="lblGenderWarn" IsVisible="false" TextColor="Red"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lblDOB" Text="Date Of Birth" HorizontalTextAlignment="Start" FontSize="18"></Label>
+                            <Label x:Name="lblAge"  Text="Age" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <DatePicker Format="dd-MM-yyyy" x:Name="dtpDOB" WidthRequest="154"  DateSelected="dtpDOB_DateSelected" HorizontalOptions="Start"></DatePicker>
+                            <Entry x:Name="txtAge" Keyboard="Numeric" WidthRequest="160" TextChanged="txtAge_TextChanged" FontSize="16" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" Placeholder="Please enter age" PlaceholderColor="Gray"></Entry>
+
+                        </StackLayout>
+                        <Label x:Name="lblAgeWarn" IsVisible="false" TextColor="Red" HorizontalTextAlignment="End" HorizontalOptions="End"></Label>
+                        <Label x:Name="lblClass" Text="Class" FontSize="18"></Label>
+                        <Entry x:Name="txtClass" Placeholder="Please enter class" PlaceholderColor="Gray" HorizontalOptions="Start" WidthRequest="154" FontSize="16"></Entry>
+                        <Label x:Name="lblAddress" Text="Address" FontSize="18"></Label>
+                        <Editor x:Name="txtAddress" Placeholder="Please enter address" PlaceholderColor="Gray" FontSize="16"></Editor>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Button Text="Delete" x:Name="btnDelete" Clicked="btnDelete_Clicked" BackgroundColor="Red" IsVisible="false" TextColor="White" ></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
